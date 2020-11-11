@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius_card">20dp</dimen>
+    <dimen name="tv_nombre">20dp</dimen>
+    <dimen name="image_button">44dp</dimen>
+    <dimen name="left">270dp</dimen>
+    <dimen name="actionbar_button">38dp</dimen>
+
+</resources>
