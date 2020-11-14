@@ -2,4 +2,7 @@
     <string name="app_name">Petagram</string>
     <string name="nombre">Nombre Mascota</string>
     <string name="contador">5</string>
+    <string name="menu_contact">Contacto</string>
+    <string name="menu_about">Acerca de</string>
+
 </resources>
