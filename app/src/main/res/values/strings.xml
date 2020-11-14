@@ -4,5 +4,9 @@
     <string name="contador">5</string>
     <string name="menu_contact">Contacto</string>
     <string name="menu_about">Acerca de</string>
+    <string name="formulario_contacto_nom">Nombre:</string>
+    <string name="formulario_contacto_email">Email:</string>
+    <string name="formulario_contacto_com">Comentario:</string>
+    <string name="btn_enviar_com">Enviar Comentario</string>
 
 </resources>
