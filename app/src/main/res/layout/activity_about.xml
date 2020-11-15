@@ -4,16 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".About">
+    tools:context=".About"
+    android:layout_marginTop="20dp">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/circularImageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:src="@drawable/perfil"
+        app:civ_border_color="#3f51b5"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10dp"
+        app:civ_shadow_color="#3f51b5"
+        android:layout_centerHorizontal="true"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+        android:orientation="vertical"
+        android:layout_below="@id/circularImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
 
-            />
+        <TextView
+            android:id="@+id/tvNombreDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre_desarrollador"
+            android:textStyle="bold"
+            android:textColor="#0A5C81"
+            android:textSize="25dp"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:id="@+id/iconPais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bolivia"
+                android:layout_marginLeft="30dp"/>
+            <TextView
+                android:id="@+id/tvPais"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/pais_desarrollador"
+                android:textStyle="bold"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+           android:layout_marginTop="20dp">
+           <ImageView
+               android:id="@+id/iconTelefono"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/whatsapp"
+               android:layout_marginLeft="30dp"/>
+           <TextView
+               android:id="@+id/tvTelefono"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:textStyle="bold"
+               android:text="@string/telefono_desarrollador"
+               android:layout_marginLeft="20dp" />
+
+       </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+            <ImageView
+                android:id="@+id/iconEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/email"
+                android:layout_marginLeft="30dp"/>
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:text="@string/email_desarrollador"
+                android:layout_marginLeft="20dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

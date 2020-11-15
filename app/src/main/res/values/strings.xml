@@ -8,5 +8,9 @@
     <string name="formulario_contacto_email">Email:</string>
     <string name="formulario_contacto_com">Comentario:</string>
     <string name="btn_enviar_com">Enviar Comentario</string>
+    <string name="nombre_desarrollador">Leonardo Siangas Revollo</string>
+    <string name="telefono_desarrollador">(+591) 79968653 </string>
+    <string name="pais_desarrollador">Bolivia</string>
+    <string name="email_desarrollador">lsrev311@gmail.com</string>
 
 </resources>
