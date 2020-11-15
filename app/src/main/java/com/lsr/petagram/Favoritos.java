@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.ImageButton;
+
+import com.lsr.petagram.adapter.MascotaAdaptador;
+import com.lsr.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
 

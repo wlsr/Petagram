@@ -12,5 +12,7 @@
     <string name="telefono_desarrollador">(+591) 79968653 </string>
     <string name="pais_desarrollador">Bolivia</string>
     <string name="email_desarrollador">lsrev311@gmail.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.lsr.petagram;
+package com.lsr.petagram.pojo;
 
 public class Mascota {
     private String nombre;

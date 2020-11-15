@@ -4,43 +4,61 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import com.google.android.material.tabs.TabLayout;
+import com.lsr.petagram.adapter.MascotaAdaptador;
+import com.lsr.petagram.adapter.PageAdapter;
+import com.lsr.petagram.fragment.listaMascotas;
+import com.lsr.petagram.fragment.perfilMascotas;
+import com.lsr.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotas;
     private ImageButton btnLikes;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        setSupportActionBar(miActionBar);
+        //Casteamos para el view pager
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        setUpViewPager();
 
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.layout_titulo);
+        // Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
+        // setSupportActionBar(miActionBar);
 
-        btnLikes    = (ImageButton) findViewById(R.id.btnLikes);
 
-        // Para poder manipular como un objeto.
-        listaMascotas = (RecyclerView) findViewById(R.id.rvMascotas);
-        //Lo vamos a mostrar como una lista
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        // Validamos el toolbar
+        if(toolbar != null){
+            setSupportActionBar(toolbar);
+        }
+
+       // Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
+        //setSupportActionBar(miActionBar);
+
+        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        //getSupportActionBar().setCustomView(R.layout.layout_titulo);
+
+        /*btnLikes    = (ImageButton) findViewById(R.id.btnLikes);
+
+
 
         //GridLayoutManager glm= new GridLayoutManager(this,2);
         ////////////
@@ -50,11 +68,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Favoritos.class);
                 startActivity(intent);
             }
-        });
-        ////////////////
-        listaMascotas.setLayoutManager(llm);
-        inicalizarListaMascotas();
-        inicializarAdaptador();
+        });*/
+
+    }
+    // Agregamos los fragments a la lista.
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        // Agregamos el primer fragment que se mostrara en el primer tab
+        fragments.add(new listaMascotas());
+        fragments.add(new perfilMascotas());
+        return fragments;
+    }
+    // Metodo para poner en orbita los fragments
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.bolivia);
+        tabLayout.getTabAt(1).setIcon(R.drawable.whatsapp);
     }
     // menu de opciones
 
@@ -79,20 +109,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public MascotaAdaptador adaptador;
-    private void inicializarAdaptador(){
-        adaptador  = new MascotaAdaptador(mascotas,this);
-        listaMascotas.setAdapter(adaptador);
-    }
-    public  void inicalizarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-
-        mascotas.add(new Mascota("Firulais","Perro","Jack Russell","5","Macho","4",R.drawable.dogs));
-        mascotas.add(new Mascota("Kitty","Gato","Friskies","6","Hembra","3",R.drawable.kitty));
-        mascotas.add(new Mascota("Lorenzo","Loro","Lor","8","Macho","5",R.drawable.lorenzo));
-        mascotas.add(new Mascota("Rulo","perro","Caniche","9","Macho","5",R.drawable.rulo));
-        mascotas.add(new Mascota("Manchas","Perro","Mestiza","10","Hembra","4",R.drawable.manchas));
-
-
-    }
 }
