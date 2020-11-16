@@ -5,17 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FormularioContacto">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:orientation="vertical">
+        <include
+            android:id="@+id/miActionBar"
+            layout="@layout/actionbar">
+        </include>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tvNombreContacto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/formulario_contacto_nom">
+            android:hint="@string/formulario_contacto_nom"
+            android:layout_marginTop="50dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editNombreContacto"

@@ -32,8 +32,8 @@ public class Favoritos extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Para ocultar boton del actionbar
-        ImageButton resetButton=(ImageButton)findViewById(R.id.btnLikes);
-        resetButton.setVisibility(View.INVISIBLE); //To set visible
+      //  ImageButton resetButton=(ImageButton)findViewById(R.id.btnLikes);
+      //  resetButton.setVisibility(View.INVISIBLE); //To set visible
 
         // Para poder manipular como un objeto.
         listaMascotasF = (RecyclerView) findViewById(R.id.rvMascotasF);

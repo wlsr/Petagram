@@ -16,15 +16,13 @@
         android:background="@drawable/icons8_dog_paw"
         android:layout_gravity="left"
         />
-
-
-    <ImageButton
-        android:id="@+id/btnLikes"
-        android:layout_width="@dimen/actionbar_button"
-        android:layout_height="@dimen/actionbar_button"
-        android:background="@drawable/icons8_star_48"
-        android:layout_gravity="right"
-
-        />
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="@color/white">
+    </TextView>
 </com.google.android.material.appbar.MaterialToolbar>

@@ -11,5 +11,13 @@
         android:title="@string/menu_about"
         android:orderInCategory="101">
     </item>
+    <item
+        android:id="@+id/mFavorito"
+        android:icon="@drawable/icons8_star_48"
+        android:orderInCategory="102"
+        app:showAsAction="always"
+        android:title="Favorito">
+    </item>
+
 
 </menu>
