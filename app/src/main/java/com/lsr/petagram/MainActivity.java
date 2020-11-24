@@ -1,27 +1,21 @@
 package com.lsr.petagram;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
-import com.lsr.petagram.adapter.MascotaAdaptador;
 import com.lsr.petagram.adapter.PageAdapter;
-import com.lsr.petagram.fragment.listaMascotas;
-import com.lsr.petagram.fragment.perfilMascotas;
-import com.lsr.petagram.pojo.Mascota;
+import com.lsr.petagram.fragment.ListaMascotas;
+import com.lsr.petagram.fragment.PerfilMascotas;
 
 import java.util.ArrayList;
 
@@ -76,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fragment> agregarFragments() {
         ArrayList<Fragment> fragments = new ArrayList<>();
         // Agregamos el primer fragment que se mostrara en el primer tab
-        fragments.add(new listaMascotas());
-        fragments.add(new perfilMascotas());
+        fragments.add(new ListaMascotas());
+        fragments.add(new PerfilMascotas());
         return fragments;
     }
 

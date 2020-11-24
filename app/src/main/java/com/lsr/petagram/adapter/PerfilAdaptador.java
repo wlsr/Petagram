@@ -41,18 +41,20 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
     public void onBindViewHolder(@NonNull PerfilAdaptador.PerfilViewHolder perfilViewHolder, int position) {
         Mascota perfil = perfilMascota.get(position);
         perfilViewHolder.imgFoto.setImageResource(perfil.getFoto());
-        perfilViewHolder.contadorLike.setText(perfil.getLikes());
+        perfilViewHolder.tvLikeP.setText(String.valueOf(perfil.getLikes()));
     }
 
     @Override
-    public int getItemCount() { //Cantidad de elementos que contiene mi lista.
+    public int getItemCount() {
+        //Cantidad de elementos que contiene mi lista.
         return perfilMascota.size();
+
     }
 
     public static class PerfilViewHolder extends RecyclerView.ViewHolder{
         private ImageView imgFoto;
         private ImageView imgLike;
-        private TextView contadorLike;
+        private TextView tvLikeP;
 
 
 
@@ -60,7 +62,7 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
             super(itemView);
             imgFoto     = (ImageView) itemView.findViewById(R.id.imgFoto);
             imgLike     = (ImageView) itemView.findViewById(R.id.imgLike);
-            contadorLike= (TextView) itemView.findViewById(R.id.contadorLike);
+            tvLikeP      = (TextView) itemView.findViewById(R.id.tvLikeP);
 
         }
     }

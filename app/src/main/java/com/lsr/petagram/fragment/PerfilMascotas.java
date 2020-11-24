@@ -21,11 +21,11 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class perfilMascotas extends Fragment {
+public class PerfilMascotas extends Fragment {
     ArrayList<Mascota> perfil;
     private RecyclerView perfilMascotas;
 
-    public perfilMascotas() {
+    public PerfilMascotas() {
         // Required empty public constructor
     }
 
@@ -50,15 +50,15 @@ public class perfilMascotas extends Fragment {
         perfilMascotas.setAdapter(adaptador);
     }
     public  void inicalizarPerfilMascota(){
-        perfil = new ArrayList<Mascota>();
+       perfil = new ArrayList<Mascota>();
 
-        perfil.add(new Mascota("Theo","18",R.drawable.theo1));
-        perfil.add(new Mascota("Theo","15",R.drawable.theo2));
-        perfil.add(new Mascota("Theo","20",R.drawable.theo3));
-        perfil.add(new Mascota("Theo","6",R.drawable.theo4));
-        perfil.add(new Mascota("Theo","9",R.drawable.theo5));
-        perfil.add(new Mascota("Theo","5",R.drawable.theo6));
-        perfil.add(new Mascota("Theo","6",R.drawable.theo7));
+        perfil.add(new Mascota("Theo",18,R.drawable.theo1));
+        perfil.add(new Mascota("Theo",15,R.drawable.theo2));
+        perfil.add(new Mascota("Theo",20,R.drawable.theo3));
+        perfil.add(new Mascota("Theo",6,R.drawable.theo4));
+        perfil.add(new Mascota("Theo",9,R.drawable.theo5));
+        perfil.add(new Mascota("Theo",5,R.drawable.theo6));
+        perfil.add(new Mascota("Theo",6,R.drawable.theo7));
         }
 
 }

@@ -44,7 +44,7 @@ import java.util.ArrayList;
             Mascota mascota = mascotas.get(position);
             mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
             mascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
-            mascotaViewHolder.contadorLike.setText(mascota.getLikes());
+            mascotaViewHolder.tvLike.setText(String.valueOf(mascota.getLikes()));
             mascotaViewHolder.btnLike.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,7 +63,7 @@ import java.util.ArrayList;
             private ImageButton btnLike;
             private TextView tvNombreCV;
             private ImageView imgLike;
-            private TextView contadorLike;
+            private TextView tvLike;
 
 
 
@@ -73,7 +73,7 @@ import java.util.ArrayList;
                 btnLike     = (ImageButton) itemView.findViewById(R.id.btnLike);
                 tvNombreCV  = (TextView) itemView.findViewById(R.id.tvNombreCV);
                 imgLike     = (ImageView) itemView.findViewById(R.id.imgLike);
-                contadorLike= (TextView) itemView.findViewById(R.id.contadorLike);
+                tvLike      = (TextView) itemView.findViewById(R.id.tvLike);
 
 
 

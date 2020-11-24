@@ -1,25 +1,16 @@
 package com.lsr.petagram.pojo;
 
 public class Mascota {
+    private int id;
     private String nombre;
-    private String tipo;
-    private String raza;
-    private String edad;
-    private String genero;
-    private String likes;
+    private int likes = 0;
     private int foto;
 
-    public  Mascota(String nombre,String likes, int foto){
-        this.nombre = nombre;
-        this.likes  = likes;
-        this.foto   = foto;
+    public Mascota(){
+
     }
-    public Mascota(String nombre, String tipo, String raza, String edad,String genero,String likes,int foto ) {
+    public Mascota(String nombre, int likes,int foto ) {
         this.nombre     = nombre;
-        this.tipo       = tipo;
-        this.raza       = raza;
-        this.edad       = edad;
-        this.genero     = genero;
         this.likes       = likes;
         this.foto       = foto;
     }
@@ -32,36 +23,12 @@ public class Mascota {
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getLikes() {
+        return likes;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getRaza() {
-        return raza;
-    }
-
-    public void setRaza(String raza) {
-        this.raza = raza;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setLikes(int likes) {
+        this.likes = likes;
     }
 
     public int getFoto() {
@@ -72,11 +39,11 @@ public class Mascota {
         this.foto = foto;
     }
 
-    public String getLikes() {
-        return likes;
+    public int getId() {
+        return id;
     }
 
-    public void setLikes(String likes) {
-        this.likes = likes;
+    public void setId(int id) {
+        this.id = id;
     }
 }
