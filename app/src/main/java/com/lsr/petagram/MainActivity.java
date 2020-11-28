@@ -10,12 +10,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.URLUtil;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
+import com.lsr.petagram.adapter.FavoritoAdaptador;
 import com.lsr.petagram.adapter.PageAdapter;
+import com.lsr.petagram.fragment.FavoritosFragment;
 import com.lsr.petagram.fragment.ListaMascotas;
 import com.lsr.petagram.fragment.PerfilMascotas;
+import com.lsr.petagram.presentador.FavoritosPresenter;
 
 import java.util.ArrayList;
 
@@ -43,26 +48,6 @@ public class MainActivity extends AppCompatActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
-
-        // Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
-        //setSupportActionBar(miActionBar);
-
-        //getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        //getSupportActionBar().setCustomView(R.layout.layout_titulo);
-
-        /*btnLikes    = (ImageButton) findViewById(R.id.btnLikes);
-
-
-
-        //GridLayoutManager glm= new GridLayoutManager(this,2);
-        ////////////
-        btnLikes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Favoritos.class);
-                startActivity(intent);
-            }
-        });*/
 
     }
 
@@ -104,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.mFavorito:
                 Intent intent2 = new Intent(this, Favoritos.class);
                 startActivity(intent2);
+                
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -11,7 +11,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.lsr.petagram.R;
+import com.lsr.petagram.db.ConstructorMascotas;
 import com.lsr.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -33,15 +36,13 @@ import java.util.ArrayList;
         public MascotaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_mascota, parent, false);
 
-
-
             return new MascotaViewHolder(v);
         }
 
         //Asocia cada elemento de la lista con cada view
         @Override
         public void onBindViewHolder(@NonNull MascotaViewHolder mascotaViewHolder, int position) {
-            Mascota mascota = mascotas.get(position);
+            final Mascota mascota = mascotas.get(position);
             mascotaViewHolder.imgFoto.setImageResource(mascota.getFoto());
             mascotaViewHolder.tvNombreCV.setText(mascota.getNombre());
             mascotaViewHolder.tvLike.setText(String.valueOf(mascota.getLikes()));
@@ -49,8 +50,14 @@ import java.util.ArrayList;
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(activity,"Like a " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
+
+                    ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                    constructorMascotas.darLikeMascota(mascota);
+                    mascotaViewHolder.tvLike.setText(constructorMascotas.obtenerLikesMascota(mascota)+"");
                 }
             });
+
+
         }
 
         @Override
@@ -65,8 +72,6 @@ import java.util.ArrayList;
             private ImageView imgLike;
             private TextView tvLike;
 
-
-
             public MascotaViewHolder(@NonNull View itemView) {
                 super(itemView);
                 imgFoto     = (ImageView) itemView.findViewById(R.id.imgFoto);
@@ -74,9 +79,6 @@ import java.util.ArrayList;
                 tvNombreCV  = (TextView) itemView.findViewById(R.id.tvNombreCV);
                 imgLike     = (ImageView) itemView.findViewById(R.id.imgLike);
                 tvLike      = (TextView) itemView.findViewById(R.id.tvLike);
-
-
-
 
             }
 

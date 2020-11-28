@@ -1,16 +1,19 @@
 package com.lsr.petagram.adapter;
 
 import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lsr.petagram.R;
+import com.lsr.petagram.fragment.PerfilMascotas;
 import com.lsr.petagram.pojo.Mascota;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
 
         this.perfilMascota = perfilMascota;
         this.activity  = activity;
+
     }
 
 
@@ -30,9 +34,6 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
     @Override
     public PerfilAdaptador.PerfilViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_perfil_mascota, parent, false);
-
-
-
         return new PerfilAdaptador.PerfilViewHolder(v);
     }
 
@@ -42,6 +43,7 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
         Mascota perfil = perfilMascota.get(position);
         perfilViewHolder.imgFoto.setImageResource(perfil.getFoto());
         perfilViewHolder.tvLikeP.setText(String.valueOf(perfil.getLikes()));
+
     }
 
     @Override
@@ -55,8 +57,6 @@ public class PerfilAdaptador extends RecyclerView.Adapter<PerfilAdaptador.Perfil
         private ImageView imgFoto;
         private ImageView imgLike;
         private TextView tvLikeP;
-
-
 
         public PerfilViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -1,63 +1,73 @@
 package com.lsr.petagram;
 
-import androidx.appcompat.app.ActionBar;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.cardview.widget.CardView;
+import androidx.core.app.NavUtils;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
-import com.lsr.petagram.adapter.MascotaAdaptador;
-import com.lsr.petagram.pojo.Mascota;
+import com.google.android.material.tabs.TabLayout;
+import com.lsr.petagram.adapter.FavoritoAdaptador;
+import com.lsr.petagram.adapter.PageAdapter;
+import com.lsr.petagram.fragment.FavoritosFragment;
+
 
 import java.util.ArrayList;
 
 public class Favoritos extends AppCompatActivity {
-    ArrayList<Mascota> mascotas;
-    private RecyclerView listaMascotasF;
+   // private ImageButton btnLikes;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TextView tvNoFavorita;
+    private FavoritoAdaptador favoritoAdaptador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
 
+        //Casteamos para el view pager
+
+        viewPager = (ViewPager) findViewById(R.id.viewPagerF);
+        setUpViewPager();
         Toolbar miActionBar = (Toolbar) findViewById(R.id.miActionBar);
         setSupportActionBar(miActionBar);
-        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSupportActionBar().setCustomView(R.layout.layout_titulo);
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //Para ocultar boton del actionbar
-      //  ImageButton resetButton=(ImageButton)findViewById(R.id.btnLikes);
-      //  resetButton.setVisibility(View.INVISIBLE); //To set visible
+       //
+       // tvNoFavorita = (TextView) findViewById(R.id.tvNoFavorita);
+        //tvNoFavorita.setVisibility(View.GONE);
+        // Validamos el toolbar
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
 
-        // Para poder manipular como un objeto.
-        listaMascotasF = (RecyclerView) findViewById(R.id.rvMascotasF);
-        //Lo vamos a mostrar como una lista
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotasF.setLayoutManager(llm);
-        inicalizarListaMascotasF();
-        inicializarAdaptador();
     }
-    public MascotaAdaptador adaptador;
-    private void inicializarAdaptador(){
-        adaptador  = new MascotaAdaptador(mascotas,this);
-        listaMascotasF.setAdapter(adaptador);
+
+    // Agregamos los fragments a la lista.
+    private ArrayList<Fragment> agregarFragments() {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        // Agregamos el primer fragment que se mostrara en el primer tab
+        fragments.add(new FavoritosFragment());
+        return fragments;
     }
-    public  void inicalizarListaMascotasF(){
-       mascotas = new ArrayList<Mascota>();
-        mascotas.add(new Mascota("Lorenzo",5,R.drawable.lorenzo));
-        mascotas.add(new Mascota("Rulo",5,R.drawable.rulo));
-        mascotas.add(new Mascota("Firulais",4,R.drawable.dogs));
-        mascotas.add(new Mascota("Kitty",3,R.drawable.kitty));
-        mascotas.add(new Mascota("Manchas",4,R.drawable.manchas));
 
-
+    // Metodo para poner en orbita los fragments
+    private void setUpViewPager() {
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
     }
 
 }

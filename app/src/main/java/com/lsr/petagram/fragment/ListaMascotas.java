@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,20 +38,9 @@ public class ListaMascotas extends Fragment implements IListaMascotaView {
         // Para poder manipular como un objeto.
         listaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
         presenter = new ListaMascotaPresenter(this, getContext());
+        Log.i("presenter", "obtenerUltimas:" + presenter);
         return v;
     }
-/*
-    public  void inicalizarListaMascotas(){
-        mascotas = new ArrayList<Mascota>();
-
-        mascotas.add(new Mascota("Firulais",4,R.drawable.dogs));
-        mascotas.add(new Mascota("Kitty",3,R.drawable.kitty));
-        mascotas.add(new Mascota("Lorenzo",5,R.drawable.lorenzo));
-        mascotas.add(new Mascota("Rulo",5,R.drawable.rulo));
-        mascotas.add(new Mascota("Manchas",4,R.drawable.manchas));
-    }
-
- */
 
     @Override
     public void generarLinearLayoutVertical() {

@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Favoritos">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <include
+            android:id="@+id/miActionBar"
+            layout="@layout/actionbar">
+        </include>
 
-    <include
-        android:id="@+id/miActionBar"
-        layout="@layout/actionbar">
-    </include>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMascotasF"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPagerF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true"
-        android:padding="10dp"
-        android:layout_below="@id/miActionBar" />
-</RelativeLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </androidx.viewpager.widget.ViewPager>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

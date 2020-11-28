@@ -17,6 +17,7 @@
                 android:value=".MainActivity" />
 
         </activity>
+
         <activity android:name=".FormularioContacto"
                   android:parentActivityName=".MainActivity">
             <meta-data
